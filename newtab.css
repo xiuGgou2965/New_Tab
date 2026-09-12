@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+}
+
+
+.search-bar {
+    display: flex;
+
+    --sb-width: 600px;
+    --sb-height: 50px;
+    --sb-border-radius: 50px;
+
+    --sb-top-height: 500px;
+
+    width: var(--sb-width);
+    height: var(--sb-height);
+    border-radius: var(--sb-border-radius);
+    top: var(--sb-top-height);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+
+    background: linear-gradient(45deg,
+        rgba(255, 255, 255, 0.8) 0%,
+        transparent 25%, transparent 75%,
+        rgba(255, 255, 255, 0.8) 100%
+        );
+    
+    box-shadow: 
+        /* 右上和左下的白色 */
+        inset 2px -2px 1px -1px rgba(255, 255, 255, 0.9),
+        inset -2px 2px 1px -1px rgba(255, 255, 255, 0.9),
+
+        /* 白色延伸, 提亮和衔接渐变 */
+        inset 6px -6px 1px -6px rgba(255, 255, 255, 0.55),
+        inset -6px 6px 1px -6px rgba(255, 255, 255, 0.55),
+
+        /* 一层黑色 */
+        inset 0 0 2px rgba(0, 0, 0, 0.8),
+
+        /* 外阴影 */
+        0 4px 8px rgba(0, 0, 0, 0.2);
+
+    /* 双实线边框 */
+    border-radius: 1px double rgba(51, 51, 51, 0.08); 
+
+}
+
+.search-bar-gq {
+    position: absolute;
+    width: calc(var(--sb-width) - 9px);
+    height: calc(var(--sb-height) - 9px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--sb-border-radius);
+    filter: blur(1px);
+    pointer-events: none;
+}
+
+
+/* 搜索引擎logo */
+.search-logo {
+  width: var(--sb-height);
+  height: var(--sb-height);
+  position: relative;
+  /* background-color: rgba(255, 255, 255, 0.7); */
+}
+
+.search-logo-img {
+    width: calc(var(--sb-height) - 25px);
+    height: calc(var(--sb-height) - 25px);
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+}
+
+/* 分割线 */
+.search-divider {
+    width: 1px;
+    height: calc(var(--sb-height) - 30px);
+    background: rgba(255, 255, 255, 0.3);
+    margin: auto 0;
+}
+
+
+/* 搜索框 */
+.search-input {
+    all: unset;
+    width: calc(var(--sb-width) - var(--sb-height) - 50px);
+    height: calc(var(--sb-height) - 2px);
+    background: transparent;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    margin: auto auto auto 3px;
+}
+
+/* 点击后样式与未点击相同*/
+.search-input:focus {
+    outline: none;
+    background: transparent;
+}
+
+.search-input::placeholder {
+    color: rgba(255,255,255,0.55);
+}
+
+
+/* 背景 */
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #ffffff; /* 底色 */
+}
+
+/* 时间&日期 */
+.time-box {
+    flex-direction: column;
+    --time-top-height: 200px;
+
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    top: var(--time-top-height);
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center;     /* 垂直居中 */
+
+    /* background: rgba(255, 255, 255); */
+}
+
+.time {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center;     /* 垂直居中 */
+
+    font-size: 100px;
+    font-weight: 650;
+    color: rgba(255, 255, 255);
+}
+
+.date {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center;     /* 垂直居中 */
+
+    font-size: 19px;
+    font-weight: 600;
+    color: rgba(255, 255, 255);
+}
