@@ -1,3 +1,7 @@
+/* 1. @import 必须在最顶部，前面不能有任何内容 */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Outfit:wght@300;500&display=swap');
+
+/* 2. 通配符选择器 * 不能少 */
 * {
     margin: 0;
     padding: 0;
@@ -13,14 +17,12 @@ body {
     overflow: hidden;
 }
 
-
+/* 搜索栏样式 */
 .search-bar {
     display: flex;
-
     --sb-width: 600px;
     --sb-height: 50px;
     --sb-border-radius: 50px;
-
     --sb-top-height: 500px;
 
     width: var(--sb-width);
@@ -31,49 +33,23 @@ body {
     transform: translate(-50%, -50%);
     position: absolute;
 
-    background: linear-gradient(45deg,
-        rgba(255, 255, 255, 0.8) 0%,
-        transparent 25%, transparent 75%,
-        rgba(255, 255, 255, 0.8) 100%
-        );
+    /* 半透明灰色背景，80% 不透明度 */
+    background: rgba(120, 120, 120, 0.8);
     
+    /* 简化的内阴影，增加质感 */
     box-shadow: 
-        /* 右上和左下的白色 */
-        inset 2px -2px 1px -1px rgba(255, 255, 255, 0.9),
-        inset -2px 2px 1px -1px rgba(255, 255, 255, 0.9),
+        inset 0 0 10px rgba(0, 0, 0, 0.2), 
+        0 4px 8px rgba(0, 0, 0, 0.1); 
 
-        /* 白色延伸, 提亮和衔接渐变 */
-        inset 6px -6px 1px -6px rgba(255, 255, 255, 0.55),
-        inset -6px 6px 1px -6px rgba(255, 255, 255, 0.55),
-
-        /* 一层黑色 */
-        inset 0 0 2px rgba(0, 0, 0, 0.8),
-
-        /* 外阴影 */
-        0 4px 8px rgba(0, 0, 0, 0.2);
-
-    /* 双实线边框 */
-    border-radius: 1px double rgba(51, 51, 51, 0.08); 
-
+    /* 简化的边框 */
+    border: 1px solid rgba(255, 255, 255, 0.3); 
 }
-
-.search-bar-gq {
-    position: absolute;
-    width: calc(var(--sb-width) - 9px);
-    height: calc(var(--sb-height) - 9px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: var(--sb-border-radius);
-    filter: blur(1px);
-    pointer-events: none;
-}
-
 
 /* 搜索引擎logo */
 .search-logo {
-  width: var(--sb-height);
-  height: var(--sb-height);
-  position: relative;
-  /* background-color: rgba(255, 255, 255, 0.7); */
+    width: var(--sb-height);
+    height: var(--sb-height);
+    position: relative;
 }
 
 .search-logo-img {
@@ -87,12 +63,11 @@ body {
 
 /* 分割线 */
 .search-divider {
-    width: 1px;
-    height: calc(var(--sb-height) - 30px);
+    width: 3px;
+    height: calc(var(--sb-height) - 20px); 
     background: rgba(255, 255, 255, 0.3);
     margin: auto 0;
 }
-
 
 /* 搜索框 */
 .search-input {
@@ -102,10 +77,15 @@ body {
     background: transparent;
     font-size: 20px;
     color: rgb(255, 255, 255);
+    
+    /* 调整后的字体样式 */
+    font-family: "Outfit", "Helvetica Neue", "PingFang SC", sans-serif; 
+    font-weight: 300; 
+    letter-spacing: 0.5px; 
+    
     margin: auto auto auto 3px;
 }
 
-/* 点击后样式与未点击相同*/
 .search-input:focus {
     outline: none;
     background: transparent;
@@ -113,10 +93,11 @@ body {
 
 .search-input::placeholder {
     color: rgba(255,255,255,0.55);
+    font-family: "Outfit", "Helvetica Neue", "PingFang SC", sans-serif;
+    font-weight: 200;
 }
 
-
-/* 背景 */
+/* 背景样式 */
 .background {
     position: fixed;
     inset: 0;
@@ -125,10 +106,10 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #ffffff; /* 底色 */
+    background-color: #ffffff;
 }
 
-/* 时间&日期 */
+/* 时间日期样式 */
 .time-box {
     flex-direction: column;
     --time-top-height: 200px;
@@ -141,28 +122,310 @@ body {
     transform: translateX(-50%);
 
     display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center;     /* 垂直居中 */
-
-    /* background: rgba(255, 255, 255); */
+    justify-content: center;
+    align-items: center;
 }
 
 .time {
     display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center;     /* 垂直居中 */
+    justify-content: center; 
+    align-items: center;     
 
-    font-size: 100px;
-    font-weight: 650;
-    color: rgba(255, 255, 255);
+    font-size: 6vw;
+    color: rgb(255, 255, 255);
+    
+    font-family: "Rajdhani", sans-serif; 
+    font-weight: 700;
+    letter-spacing: 0.05em; 
+    font-variant-numeric: tabular-nums;
+    
+    margin-bottom: 0;
+    line-height: 0.8;
+}
+
+.spacer {
+    height: 5px;
 }
 
 .date {
     display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center;     /* 垂直居中 */
+    justify-content: center; 
+    align-items: center;     
 
-    font-size: 19px;
-    font-weight: 600;
-    color: rgba(255, 255, 255);
+    font-size: 2vw; 
+    color: rgba(255, 255, 255, 0.85); 
+    
+    font-family: "Playfair Display", "Times New Roman", serif; 
+    font-weight: 400; 
+    letter-spacing: 0.1em;
+    
+    margin-top: 0;
+}
+
+/* 菜单样式 */
+.menu-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: rgba(120, 120, 120, 0.8);
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background 0.3s;
+}
+
+.menu-button:hover {
+    background: rgba(140, 140, 140, 0.8);
+}
+
+.menu {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    padding: 10px 0;
+    display: none;
+    z-index: 999;
+}
+
+.menu-item {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    color: white;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 壁纸面板样式 */
+.wallpaper-panel {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.wallpaper-panel.active {
+    display: flex;
+}
+
+.wallpaper-panel-content {
+    background: rgba(30, 30, 30, 0.9);
+    width: 33.33vw;
+    height: 33.33vh;
+    border-radius: 15px;
+    padding: 30px;
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wallpaper-panel-content h2 {
+    margin: 0 0 20px 0;
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.wallpaper-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.wallpaper-option {
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+    font-family: "Outfit", sans-serif;
+}
+
+.wallpaper-option:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* 关闭按钮样式 */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    opacity: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-button:hover {
+    opacity: 1;
+}
+
+.x-icon::before,
+.x-icon::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    background-color: white;
+    border-radius: 1px;
+}
+
+.x-icon::before {
+    transform: rotate(45deg);
+}
+
+.x-icon::after {
+    transform: rotate(-45deg);
+}
+
+/* 选项组样式 */
+.option-group {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.option-group .wallpaper-option {
+    flex: 1;
+}
+
+/* 分辨率下拉框 */
+.resolution-select {
+    width: 120px;
+    padding: 0 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    font-family: "Outfit", sans-serif;
+}
+
+.resolution-select option {
+    background: #333;
+    color: white;
+}
+
+/* 上传按钮样式 */
+#uploadTriggerBtn {
+    position: relative;
+    padding-left: 35px;
+}
+
+#uploadTriggerBtn::before {
+    content: '⬆';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* 按钮组样式 */
+.action-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    height: 50px;
+}
+
+/* 通用按钮基础样式 */
+.button-base {
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: "Outfit", sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* 保存按钮样式 */
+.save-button {
+    flex: 2;
+    padding: 0 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.save-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+/* 取消按钮样式 */
+.cancel-button {
+    flex: 1;
+    padding: 0 20px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.cancel-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
 }
