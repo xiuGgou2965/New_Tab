@@ -10,6 +10,7 @@
     <!-- 时间框 -->
     <div class="time-box">
         <div class="time" id="time"></div>
+        <div class="spacer"></div>
         <div class="date" id="date"></div>
     </div>
 
@@ -33,9 +34,48 @@
         </div>
     </div>
 
+    <!-- 菜单按钮 -->
+<button id="menuButton" class="menu-button">☰</button>
+
+<!-- 菜单 -->
+<div id="menu" class="menu">
+    <button id="changeWallpaper" class="menu-item">更换壁纸</button>
+</div>
+
+
     <!-- 背景 -->
     <div class="background"></div>
 
     <script src="./newtab.js"></script>
+
+<!-- 壁纸面板 -->
+<div id="wallpaperPanel" class="wallpaper-panel">
+    <div class="wallpaper-panel-content">
+        <h2>更换壁纸</h2>
+        <div class="wallpaper-options">
+            <div class="option-group">
+                <button class="wallpaper-option" data-type="bing">必应每日一图</button>
+                <select id="resolutionSelect" class="resolution-select">
+                    <option value="1">原画质</option>
+                    <option value="0.75">高画质 (75%)</option>
+                    <option value="0.5">推荐 (50%)</option>
+                    <option value="0.25">省内存 (25%)</option>
+                </select>
+            </div>
+            <button id="uploadTriggerBtn" class="wallpaper-option">上传本地图片</button>
+            <input type="file" id="localImageInput" accept="image/*" style="display: none;">
+        </div>
+        
+        <!-- 按钮组 -->
+        <div id="actionButtons" class="action-buttons" style="display: none;">
+            <button id="saveSettingsBtn" class="save-button">应用并保存</button>
+            <button id="cancelSettingsBtn" class="cancel-button">取消</button>
+        </div>
+        
+        <button id="closePanel" class="close-button x-icon"></button>
+    </div>
+</div>
+
+
 </body>
 </html>
